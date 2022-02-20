@@ -1,0 +1,27 @@
+#+TITLE: Scripts
+#+AUTHOR: Mrugacz
+
+* DMENU
+** Prompt
+#+begin_src bash :tangle ./dmenu/prompt :tangle-mode (identity #o755)
+#!/bin/bash
+[ $(echo -e "No\nYes" | dmenu -i -p "$1") == "Yes" ] && $2
+#+end_src
+
+#+RESULTS:
+
+** Power Settings
+#+begin_src bash :tangle ./dmenu/pwr :tangle-mode (identity #o755)
+#!/bin/bash
+choices="shutdown\nreboot\nw10\nuefi"
+chosen=$(echo -e "$choices" | dmenu -i)
+
+case "$chosen" in
+    shutdown) ./dmenu/prompt "Do you want to shutdown?" poweroff ;;
+    reboot) ./dmenu/prompt "Do you want to reboot?" reboot ;;
+    w10) ./dmenu/prompt "Do you want to reboot to Windows?" "systemctl reboot --boot-loader-entry=auto-windows" ;;
+    uefi) ./dmenu/prompt "Do you want to reboot to UEFI?" "systemctl reboot --firmware-setup" ;;
+esac
+#+end_src
+
+#+RESULTS:
