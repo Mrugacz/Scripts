@@ -15,12 +15,13 @@
 #!/bin/bash
 choices="shutdown\nreboot\nw10\nuefi"
 chosen=$(echo -e "$choices" | dmenu -i)
+prompt="/home/$USER/Scripts/dmenu/prompt"
 
 case "$chosen" in
-    shutdown) ./dmenu/prompt "Do you want to shutdown?" poweroff ;;
-    reboot) ./dmenu/prompt "Do you want to reboot?" reboot ;;
-    w10) ./dmenu/prompt "Do you want to reboot to Windows?" "systemctl reboot --boot-loader-entry=auto-windows" ;;
-    uefi) ./dmenu/prompt "Do you want to reboot to UEFI?" "systemctl reboot --firmware-setup" ;;
+    shutdown) $prompt "Do you want to shutdown?" poweroff ;;
+    reboot) $prompt "Do you want to reboot?" reboot ;;
+    w10) $prompt "Do you want to reboot to Windows?" "systemctl reboot --boot-loader-entry=auto-windows" ;;
+    uefi) $prompt "Do you want to reboot to UEFI?" "systemctl reboot --firmware-setup" ;;
 esac
 #+end_src
 
