@@ -3,7 +3,12 @@
 # My programs
 #
 
-sudo apt install -y git bspwm sxhkd kitty nitrogen i3lock fish dmenu fonts-firacode thunar maim arandr emacs
+sudo apt install -y git bspwm sxhkd kitty nitrogen i3lock fish dmenu fonts-firacode thunar maim arandr
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt update
+sudo apt install emacs27
+
+
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #
