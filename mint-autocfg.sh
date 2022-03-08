@@ -3,7 +3,7 @@
 # My programs
 #
 
-sudo apt install -y git bspwm sxhkd kitty nitrogen i3lock fish dmenu fonts-firacode thunar maim arandr
+sudo apt install -y git bspwm sxhkd kitty nitrogen i3lock fish dmenu fonts-firacode thunar maim arandr vim
 sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt update
 sudo apt install emacs27
@@ -41,6 +41,6 @@ cd ~/.config
 echo kitty > ~/.config/bspwm/terminals
 wget https://raw.githubusercontent.com/Mrugacz/dotfiles/main/README.org
 
-fish alias ssh=kitty +kitten ssh
+fish -c alias ssh="kitty +kitten ssh"
 
 emacs
